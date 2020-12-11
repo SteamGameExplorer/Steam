@@ -11,7 +11,7 @@ function Auth() {
 
     useEffect(() => {
         auth.onAuthStateChanged(user => {
-            if (user) history.push('/home')
+            if (user) history.push('/main')
         })
     }, [])
 
