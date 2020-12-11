@@ -1,0 +1,71 @@
+{
+  "name": "steam_game_explorer",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.2.1",
+    "@typescript-eslint/eslint-plugin": "^2.19.0",
+    "babel-polyfill": "^6.26.0",
+    "eslint": "^6.8.0",
+    "eslint-config-react-app": "^5.2.0",
+    "ev-emitter": "^1.1.1",
+    "node-sass": "^4.14.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-brands-svg-icons": "^5.12.1",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.8",
+    "axios": "^0.19.2",
+    "bootstrap": "4.0.0-beta",
+    "desandro-matches-selector": "^2.0.2",
+    "dotenv": "^8.2.0",
+    "dotenv-expand": "^5.1.0",
+    "get-size": "^2.0.3",
+    "google-map-react": "^1.1.6",
+    "isotope-layout": "^3.0.6",
+    "outlayer": "^2.1.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.0",
+    "react-background-video-player": "^1.1.6",
+    "react-bootstrap": "^1.4.0",
+    "react-dom": "^16.13.0",
+    "react-dropdown-select": "^4.7.1",
+    "react-modal-video": "^1.2.3",
+    "react-paginate": "^6.3.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.4.0",
+    "react-search-autocomplete": "^1.0.6",
+    "react-select": "^3.1.1",
+    "react-select-search": "^2.2.1",
+    "react-slick": "^0.25.2",
+    "react-text-typing": "0.0.4",
+    "react-toastify": "^5.5.0",
+    "semantic-ui-react": "^2.0.1",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

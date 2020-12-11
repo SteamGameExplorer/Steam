@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Softdash - Creative SaaS and Software React Template </title>
+    <meta charset="utf-8">
+    <meta name="description" content=" Softdash 
+    App Page Template">
+    <meta name="author" content="App">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <!-- Font Family-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <!-- bootstrap css -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!-- prettify css -->
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <!-- bootstrap-responsiv css -->
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- style css -->
+    <link href="assets/css/documenter_style.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style>
+    html,
+    body {
+        background-color: #FFFFFF;
+        color: #383838;
+        font-family: 'Poppins', sans-serif !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: #383838;
+    }
+
+    section table {
+        background-color: #FFFFFF;
+    }
+
+     ::-moz-selection {
+        background: #444444;
+        color: #DDDDDD;
+    }
+
+     ::selection {
+        background: #444444;
+        color: #DDDDDD;
+    }
+
+    a.brand {
+        background-image: url(assets/img/logo.png);
+    }
+
+    a,
+    a:hover,
+    a:active {
+        color: #0000FF;
+    }
+
+    hr {
+        border-top: 1px solid #EBEBEB;
+        border-bottom: 1px solid #FFFFFF;
+    }
+
+    div.navbar-inner,
+    .navbar .nav li ul {
+        background: #DDDDDD;
+        color: #222222;
+    }
+
+    a.btn-navbar {
+        background: #DDDDDD;
+        color: #222222;
+    }
+
+    .navbar .nav li a {
+        color: #222222;
+        text-shadow: 1px 1px 0px #EEEEEE;
+    }
+
+    .navbar .nav li a:hover,
+    .navbar .nav li.active a {
+        text-shadow: none;
+    }
+
+    div.navbar-inner ul {}
+
+    .navbar .nav>li a {
+        color: #444444;
+    }
+
+    .navbar .nav>li a:hover,
+    a.btn-navbar:hover {
+        background: #444444;
+        color: #DDDDDD;
+    }
+
+    .navbar .nav .active>a,
+    .navbar .nav .active>a:hover,
+    a.btn-navbar:active {
+        background-color: #444444;
+        color: #DDDDDD;
+    }
+
+    .navbar .nav li ul li a:hover {
+        background: #444444;
+        color: #DDDDDD;
+    }
+
+    .navbar .nav li ul li a:active {
+        background: #444444;
+        color: #DDDDDD;
+    }
+
+    .btn-primary {
+        background-image: -moz-linear-gradient(top, #0088CC, #0044CC);
+        background-image: -ms-linear-gradient(top, #0088CC, #0044CC);
+        background-image: -webkit-gradient(linear, 0 0, 0 0088%, from(#DDDDDD), to(#0044CC));
+        background-image: -webkit-linear-gradient(top, #0088CC, #0044CC);
+        background-image: -o-linear-gradient(top, #0088CC, #0044CC);
+        background-image: linear-gradient(top, #0088CC, #0044CC);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088CC', endColorstr='#0044CC', GradientType=0);
+        border-color: #0044CC #0044CC #bfbfbf;
+        color: #FFFFFF;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary.active,
+    .btn-primary.disabled,
+    .btn-primary[disabled] {
+        background-color: #0044CC;
+    }
+
+    #documenter_copyright {
+        display: block !important;
+        visibility: visible !important;
+    }
+
+    #theme_options2 img {
+        border: 1px solid #eee;
+        margin: 10px 0;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+
+
+    li {
+        line-height: 30px;
+    }
+
+
+
+    .card {
+        box-shadow: 0 0px 4px rgba(0, 0, 0, 0.24);
+        margin-bottom: 1.875rem;
+        border-radius: 0;
+        padding: 26px;
+    }
+
+    .card-header {
+        padding: 0px 0px 19px 2px;
+        font-size: 22px;
+        font-weight: bold;
+        border-bottom: #80808073 1px solid;
+        margin-bottom: 15px;
+    }
+
+
+
+    .filetree {
+        background: #fafafa;
+        border: 4px solid #dbdbdb;
+        border-radius: 4px;
+        margin: 0 0 24px;
+        padding: 16px 32px;
+    }
+
+    .filetree .file {
+        display: block;
+        font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        letter-spacing: .3px;
+        line-height: 32px;
+        color: #333;
+    }
+
+    .filetree .children {
+        padding-left: 24px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .filetree .children .file {
+        position: relative;
+    }
+
+    .filetree .children .file:before {
+        content: '';
+        left: -18px;
+        bottom: 16px;
+        width: 16px;
+        height: 9999px;
+        position: absolute;
+        border-width: 0 0 1px 1px;
+        border-style: solid;
+        border-color: #dbdbdb;
+        border-radius: 0 0 0 3px;
+    }
+
+    @media print {
+        * {
+            box-shadow: none!important;
+        }
+        .filetree {
+            max-width: 100%;
+        }
+    }
+    </style>
+</head>
+
+<body class="documenter-project-Reale Aste-" data-spy="scroll" id="top">
+    <!-- Documentation Navbar -->
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#"> Softdash React </a>
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li><a href="#overview" title="Overview">Overview</a></li>
+                        <li><a href="#stared" title="Getting Started">Getting Started</a></li>
+                        <li><a href="#structure" title="Folder Structure">Folder Structure</a></li>
+                        <li><a href="#htmlstructure" title="HTML Structure">HTML Structure</a></li>
+                        <li><a href="#customization" title="customization">customization</a></li>
+                        <li><a href="#dependencies" title="Dependencies">Dependencies</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Navbar -->
+    <!-- Main Container Beginning -->
+    <div class="container documenter_content" id="overview">
+        <div id="documenter-cover">
+            <div class="masthead">
+                <h1 style="text-align: center"> Softdash 
+                React App Page</h1>
+                <p style="text-align: center">created: 22/09/2018</p>
+                <p class="download-info"> <a href="mailto:support@jubayed.net" class="btn btn-large">24/7 Support: Send Us a message from our Support Page</a> </p>
+            </div>
+            <!-- masthead -->
+            <div id="intro">
+                <p class="highlight hero-unit"> Softdash 
+                React Landing is a bootstrap landing page built with React. It implements bootstrap 4 package with minimalist design. Each page section is composed of its own html, scss and ts files, organized in its own directory and So it's easy to customize and reuse for every developers. IMPORTANT:It's built with React and It's not An regular HTML landing page. </p>
+                <p class="highlight hero-unit">Thank you for purchasing my template. If you have any questions that are beyond the scope of this help file, please feel free to Drop Message at <a href="https://themeforest.net/user/becore" target="_blank">Profile Page</a></p>
+            </div>
+            <!-- intro -->
+        </div>
+        <section id="stared">
+            <div class="page-header">
+                <h3>Getting Started</h3>
+                <hr class="notop">
+            </div>
+
+            <div class="card">
+                
+                <div class="welcome">
+
+          <p>This document covers the installation and use of this theme and often reveals answers to common problems and issues - read this document thoroughly if you are experiencing any difficulties. If you have any questions that are beyond the scope of this document, feel free to email at <code><a href="mailto:support@jubayed.net">support@jubayed.net</a></code> Thank you so much!</p>
+        </div>
+
+
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    Installation
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><b>Node.js and NPM :</b> You can download Node.js from https://nodejs.org. NPM comes bundled with Node.js.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    Install Npm Packages
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><b>NPM :</b> You must have to <code>npm install</code> packages. You can do this by running npm install from the root of your project to install all the necessary dependencies.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    Development server
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Run <code> npm start </code> for a dev server. Navigate to http://localhost:3000/ . The app will automatically reload if you change any of the source files.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    Build
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Run <code>npm run build</code> to build the project. The build artifacts will be stored in the build/ directory. Use the <code> npm run build --prod </code> flag for a production build.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="structure">
+            <div class="page-header">
+                <h3>Folder Structure</h3>
+                <hr class="notop">
+            </div>
+            <pre> Softdash 
+  // root folder
++
+template
+├───public
+│   └───assets            --topbar, sidebar
+│       ├───css           --css files
+│       ├───fonts         --fonts files
+│       ├───images        --images files
+│       ├───js            --js files
+│       │   └───vendor
+│       └───scss          --scss files
+└───src
+│  ├───app
+│  │   ├───componets       -- layout dir
+│  │   ├───layouts         -- layout dir
+│  │   │   └───partials    -- layout [ partials component ]
+│  │   └───pages           -- all page
+│  └───fake-db             -- fake Data
+|——package.json            -- npm config: dependencies list
+|——package-lock.json               
++
+
+</pre>
+            <span><b>Help</b>: Forther details can be found here official documentation <a href="https://reactjs.org/docs/getting-started.html">https://reactjs.org/docs/getting-started.html.</a></span>
+        </section>
+        <section id="htmlstructure">
+            <div class="page-header">
+                <h3>HTML Structure</h3>
+                <hr class="notop">
+            </div>
+            <h3>Header Structure</h3>
+            
+<pre>
+import React from &#39;react&#39;;
+
+class Nav extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {  }
+    }
+    render() { 
+        return ( 
+            &lt;&gt;
+        &lt;ul className=&quot;navbar-nav m-auto&quot;&gt;
+            &lt;li className=&quot;nav-item active&quot;&gt;
+              &lt;a className=&quot;nav-link&quot; href=&quot;index.html&quot;&gt;
+                Home
+              &lt;/a&gt;
+              &lt;ul className=&quot;sub-menu&quot;&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/home-1`}&gt;Home 1&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/home-2`}&gt;Home 2&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/home-3`}&gt;Home 3&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/home-4`}&gt;Home 4&lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;{&quot; &quot;}
+              {/* sub menu */}
+            &lt;/li&gt;
+            &lt;li className=&quot;nav-item&quot;&gt;
+              &lt;a className=&quot;nav-link&quot; href={`${process.env.PUBLIC_URL}/about`}&gt;
+                About
+              &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li className=&quot;nav-item&quot;&gt;
+              &lt;a className=&quot;nav-link&quot; href=&quot;#a&quot;&gt;
+                Services
+              &lt;/a&gt;
+              &lt;ul className=&quot;sub-menu&quot;&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/services`} &gt;Services&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/services-details`} &gt;Services Details&lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;{&quot; &quot;}
+              {/* sub menu */}
+            &lt;/li&gt;
+            &lt;li className=&quot;nav-item&quot;&gt;
+              &lt;a className=&quot;nav-link&quot; href=&quot;#a&quot;&gt;
+                Pages
+              &lt;/a&gt;
+              &lt;ul className=&quot;sub-menu&quot;&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/case-study`} &gt;case study&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/case-details`} &gt;Case Details&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/coming-soon`} &gt;coming soon&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/error`} &gt;error&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/faq`} &gt;faq&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/pricing`} &gt;pricing&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/shop`} &gt;shop&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/shop-details`} &gt;shop Details&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/team`} &gt;team&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/team-details`} &gt;team details&lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;{&quot; &quot;}
+              {/* sub menu */}
+            &lt;/li&gt;
+            &lt;li className=&quot;nav-item&quot;&gt;
+              &lt;a className=&quot;nav-link&quot; href=&quot;#a&quot;&gt;
+                Blog
+              &lt;/a&gt;
+              &lt;ul className=&quot;sub-menu&quot;&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/blog-standard`} &gt;Blog Standard&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/blog-grid`} &gt;Blog Grid&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href={`${process.env.PUBLIC_URL}/blog-details`} &gt;Blog Details&lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;{&quot; &quot;}
+              {/* sub menu */}
+            &lt;/li&gt;
+            &lt;li className=&quot;nav-item&quot;&gt;
+              &lt;a className=&quot;nav-link&quot; href={`${process.env.PUBLIC_URL}/contact`} &gt;
+                Contact
+              &lt;/a&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+            &lt;/&gt;
+         );
+    }
+}
+ 
+export default Nav;
+</pre>
+
+            <h3>Footer Structure</h3>
+            <div>
+<pre>
+import React from &#39;react&#39;;
+
+
+class Footer extends React.Component {
+
+    render() { 
+        return ( 
+            &lt;&gt;
+&lt;footer className=&quot;footer-area footer-area-2 footer-area-1 bg_cover&quot; style={{backgroundImage: &#39;url(assets/images/footer-bg.jpg)&#39;}}&gt;
+  &lt;div className=&quot;footer-overlay&quot;&gt;
+    &lt;div className=&quot;container position-relative&quot;&gt;
+      &lt;div className=&quot;row&quot;&gt;
+        &lt;div className=&quot;col-lg-4 col-md-7&quot;&gt;
+          &lt;div className=&quot;widget-item-1 mt-30&quot;&gt;
+            &lt;img src=&quot;assets/images/logo-1.1.png&quot; alt=&quot;&quot; /&gt;
+            &lt;p&gt;The web has changed a lot since Vitaly posted his first article back in 2006. The team at Smashing has changed too, as have the things that we bring to our community onferences, books, and our membership added to the online magazine.&lt;/p&gt;
+            &lt;p&gt;One thing that hasn’t changed is that we’re a small team — with most of us not working&lt;/p&gt;
+          &lt;/div&gt; {/* widget item 1 */}
+        &lt;/div&gt;
+        &lt;div className=&quot;col-lg-3 offset-lg-1 col-md-5&quot;&gt;
+          &lt;div className=&quot;widget-item-2 mt-30&quot;&gt;
+            &lt;h4 className=&quot;title&quot;&gt;Pages&lt;/h4&gt;
+            &lt;div className=&quot;footer-list&quot;&gt;
+              &lt;ul&gt;
+                &lt;li&gt;&lt;a href=&quot;#a&quot;&gt;&lt;i className=&quot;fal fa-angle-right&quot; /&gt; Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#a&quot;&gt;&lt;i className=&quot;fal fa-angle-right&quot; /&gt; Services&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#a&quot;&gt;&lt;i className=&quot;fal fa-angle-right&quot; /&gt; About&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#a&quot;&gt;&lt;i className=&quot;fal fa-angle-right&quot; /&gt; Career&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#a&quot;&gt;&lt;i className=&quot;fal fa-angle-right&quot; /&gt; Refund&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#a&quot;&gt;&lt;i className=&quot;fal fa-angle-right&quot; /&gt; Terms&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+              &lt;ul&gt;
+                &lt;li&gt;&lt;a href=&quot;#a&quot;&gt;&lt;i className=&quot;fal fa-angle-right&quot; /&gt; Details&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#a&quot;&gt;&lt;i className=&quot;fal fa-angle-right&quot; /&gt; Contact&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#a&quot;&gt;&lt;i className=&quot;fal fa-angle-right&quot; /&gt; Business&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#a&quot;&gt;&lt;i className=&quot;fal fa-angle-right&quot; /&gt; Affiliate&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/div&gt; {/* widget item 2 */}
+        &lt;/div&gt;
+        &lt;div className=&quot;col-lg-4 col-md-6&quot;&gt;
+          &lt;div className=&quot;widget-item-2 widget-item-3 mt-30&quot;&gt;
+            &lt;h4 className=&quot;title&quot;&gt;Working Hours&lt;/h4&gt;
+            &lt;ul&gt;
+              &lt;li&gt;Monday - Friday: 7:00 - 17:00&lt;/li&gt;
+              &lt;li&gt;Saturday: 7:00 - 12:00&lt;/li&gt;
+              &lt;li&gt;Sunday and holidays: 8:00 - 10:00&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;p&gt;&lt;span&gt;For more then 30 years,&lt;/span&gt; IT Service has been a reliable partner in the field of logistics and cargo forwarding.&lt;/p&gt;
+            &lt;a href=&quot;#a&quot;&gt;&lt;i className=&quot;fal fa-angle-right&quot; /&gt;Discover More&lt;/a&gt;
+          &lt;/div&gt; {/* widget item 3 */}
+        &lt;/div&gt;
+      &lt;/div&gt; {/* row */}
+      &lt;div className=&quot;row&quot;&gt;
+        &lt;div className=&quot;col-lg-12&quot;&gt;
+          &lt;div className=&quot;footer-copyright&quot;&gt;
+            &lt;p&gt;Copyright By@ &lt;span&gt;tanvir82&lt;/span&gt; - 2019&lt;/p&gt;
+          &lt;/div&gt; {/* footer copyright */}
+        &lt;/div&gt;
+      &lt;/div&gt; {/* row */}
+    &lt;/div&gt; {/* container */}
+  &lt;/div&gt;
+&lt;/footer&gt;
+
+{/*====== BACK TO TOP ======*/}
+&lt;div className=&quot;back-to-top back-to-top-2&quot;&gt;
+  &lt;a href=&quot;#backTotop&quot;&gt;
+    &lt;i className=&quot;fas fa-arrow-up&quot; /&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+{/*====== BACK TO TOP ======*/}
+    
+
+            &lt;/&gt;
+         );
+    }
+}
+ 
+export default Footer;
+</pre>
+            </div>
+        </section>
+
+
+
+        <section id="customization">
+            <div class="page-header">
+                <h3>Customization</h3>
+                <hr class="notop">
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    How to change Logo ?
+                </div>
+                <div class="card-body">
+                    <div>
+<pre>
+      &lt;nav className=&quot;navbar navbar-expand-lg navbar-light &quot;&gt;
+        &lt;a className=&quot;navbar-brand&quot; href={`${process.env.PUBLIC_URL}/`}&gt;
+          <span style="border: 3px solid red">&lt;img src=&quot;/assets/images/logo.png&quot; alt=&quot;&quot; /&gt;</span>
+        &lt;/a&gt; {/* logo */}
+        &lt;button className=&quot;navbar-toggler&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#navbarSupportedContent&quot; aria-controls=&quot;navbarSupportedContent&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+          &lt;span className=&quot;toggler-icon&quot; /&gt;
+          &lt;span className=&quot;toggler-icon&quot; /&gt;
+          &lt;span className=&quot;toggler-icon&quot; /&gt;
+        &lt;/button&gt; {/* navbar toggler */}
+        &lt;div className=&quot;collapse navbar-collapse sub-menu-bar&quot; id=&quot;navbarSupportedContent&quot;&gt;
+          &lt;Nav/&gt;
+        &lt;/div&gt; {/* navbar collapse */}
+        &lt;div className=&quot;bar-area d-none d-xl-block&quot;&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;a href=&quot;#a&quot;&gt;&lt;i className=&quot;fal fa-shopping-cart&quot; /&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#a&quot;&gt;&lt;i className=&quot;fal fa-search&quot; /&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#a&quot;&gt;&lt;i className=&quot;fal fa-bars&quot; /&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;navbar-btn mr-100&quot;&gt;
+          &lt;a className=&quot;main-btn&quot; href=&quot;#a&quot;&gt;Free Consulting &lt;i className=&quot;fal fa-long-arrow-right&quot; /&gt;&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/nav&gt;
+</pre>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    How to change Copyright ?
+                </div>
+                <div class="card-body">
+<pre>
+      &lt;div className=&quot;row&quot;&gt;
+        &lt;div className=&quot;col-lg-12&quot;&gt;
+          &lt;div className=&quot;footer-copyright&quot;&gt;
+            <span style="border: 3px red solid">&lt;p&gt;Copyright By@ &lt;span&gt;tanvir82&lt;/span&gt; - 2019&lt;/p&gt;</span>
+          &lt;/div&gt; {/* footer copyright */} &lt;/div&gt;
+      &lt;/div&gt; {/* row */}
+</pre>
+                </div>
+            </div>
+
+
+        </section>
+        <section id="dependencies">
+            <div class="page-header">
+                <h3>Dependencies</h3>
+                <hr class="notop">
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    Dependencies
+                </div>
+                <div class="card-body">
+                    
+
+                    <ul>
+                            <li><a target="_blank" href="#">Bootstrap Framework</a></li>
+                            <li><a target="_blank" href="#">FontAwesome</a></li>
+                            <li><a target="_blank" href="#">Google Map</a></li>
+                            <li><a target="_blank" href="#">react-background-video-player</a></li>
+                            <li><a target="_blank" href="#">react-modal-video</a></li>
+                            <li><a target="_blank" href="#">react-slick</a></li>
+                            <li><a target="_blank" href="#">styled-components"</a></li>
+                        </ul>
+
+
+                </div>
+            </div>
+        </section>
+        <section id="thanks">
+            <div class="page-header">
+                <h3>Thanks</h3>
+                <hr class="notop">
+            </div>
+            <h4 id="thanks_span_style"><span style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-weight: 700; font-style: inherit; font-family: inherit; vertical-align: baseline;">Once again thank you for purchasing one of our Templates , if you like our Templates please rate us</span></h4>
+            <h2 style="margin: 0px 0px 18px; padding: 0px; border: 0px; outline: 0px; font-weight: 100; font-size: 20px;  font-family: 'Poppins', sans-serif; vertical-align: baseline; color: rgb(56, 56, 56);"> Best Regards</h2>
+            <h3 style="margin: 18px 0px 0px; padding: 0px; border: 0px; outline: 0px; font-weight: 100; font-size: 26px;  font-family: 'Poppins', sans-serif; vertical-align: baseline; color: rgb(56, 56, 56);"> Becore</h3>
+        </section>
+        <hr />
+        <footer>
+            <p>Copyright Becore 2020 </p>
+        </footer>
+    </div>
+    <!-- /container -->
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script>
+    document.createElement('section');
+    var duration = '500',
+        easing = 'swing';
+    </script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/jquery.scrollTo.js"></script>
+    <script src="assets/js/jquery.easing.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/js/bootstrap-min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+
+$extra-large: 30px;
+
+.wood-text {
+    background: url('https://i.imgur.com/OUyfQnt.jpg');
+    background-size: cover;
+    position: relative;
+    font-size: $extra-large * 1.5;
+    text-transform: uppercase;
+    font-family: 'Rancho', cursive;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    &:after {
+      $stroke-width: $extra-large * 0.05;
+      position: absolute;
+      -webkit-text-stroke-width: $stroke-width;
+      -webkit-text-stroke-color: rgba(black, 0.6);
+      left: 2px;
+      top: 2px
+    }
+  }
