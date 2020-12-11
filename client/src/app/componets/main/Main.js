@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 function Main() {
     useEffect(() => {
         auth.onAuthStateChanged(user => {
-            if (!user) history.push('/auth');
+            if (!user) history.push('/home');
         })
     })
     const history = useHistory();
