@@ -62,7 +62,7 @@ class HomeContent extends React.Component {
                   in searching games in a variety of ways, viewing the development
                   of game and companies.
                 </p>
-                <a href="/blog/index" className="genric-btn2">
+                <a href="/portfolio" className="genric-btn2">
                   Start exploring
                 </a>
               </div>

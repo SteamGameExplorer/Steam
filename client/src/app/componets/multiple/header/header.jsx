@@ -1,6 +1,5 @@
 import React from "react";
 import Nav from "../nav";
-import Signin from "../../auth/Auth.js";
 import {Link} from "react-router-dom";
 
 class Header extends React.Component {

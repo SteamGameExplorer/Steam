@@ -74,13 +74,13 @@ class Nav extends React.Component {
           <Link to={"/portfolio"}>Portfolio</Link>
         </li>
         <li>
-          <Link to={"/search"}>Branch 1</Link>
+          <Link to={"/search"}>Recommendation</Link>
         </li>
         <li>
-          <Link to={"/popular"}>Branch 2</Link>
+          <Link to={"/popular"}>Popular</Link>
         </li>
         <li>
-          <Link to={"/history"}>Branch 3</Link>
+          <Link to={"/history"}>History</Link>
         </li>
         <li>
           <Link to={"/about"}>About Us</Link>

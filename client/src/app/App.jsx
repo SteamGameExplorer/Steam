@@ -5,7 +5,7 @@ import HomePage from "./pages/multiple/home_page";
 import AboutPage from "./pages/multiple/about_page";
 import ContactPage from "./pages/multiple/contact_page";
 
-import BlogHomePage from "./pages/blog/portfolio_page";
+import PortfolioPage from "./pages/blog/portfolio_page";
 import BlogListPage from "./pages/blog/blog_list_page";
 
 import NoMatch from "./pages/NoMatch";
@@ -34,7 +34,7 @@ class App extends React.Component {
 					<Route path={`${process.env.PUBLIC_URL}/about`} component={AboutPage}/>
 					<Route path={`${process.env.PUBLIC_URL}/contact`} component={ContactPage}/>
 
-					<Route path={`${process.env.PUBLIC_URL}/portfolio`} component={BlogHomePage}/>
+					<Route path={`${process.env.PUBLIC_URL}/portfolio`} component={PortfolioPage}/>
 					<Route path={`${process.env.PUBLIC_URL}/popular`} component={BlogListPage}/>
 					<Route path={`${process.env.PUBLIC_URL}/search`} component={SearchAndResearchPage}/>
 					<Route path={`${process.env.PUBLIC_URL}/history`} component={HistoryPage}/>
