@@ -15,9 +15,9 @@ class PageTop extends React.Component {
             </div>
             <div className="col-lg-6  col-md-6 page-top-nav">
               <div>
-                <Link to={"index"}>Home</Link>
+                <Link to={"/"}>Home</Link>
                 <span className="lnr lnr-arrow-right" />
-                <Link to={`/multiple/${this.props.pageTitle? this.props.pageTitle.toLowerCase(): ' '}`} >
+                <Link to={`/${this.props.pageTitle? this.props.pageTitle.toLowerCase(): ' '}`} >
                 {`${this.props.pageTitle? this.props.pageTitle: 'Page'}`}
                 </Link>
               </div>

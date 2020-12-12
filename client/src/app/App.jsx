@@ -38,7 +38,7 @@ class App extends React.Component {
 					<Route path={`${process.env.PUBLIC_URL}/popular`} component={BlogListPage}/>
 					<Route path={`${process.env.PUBLIC_URL}/search`} component={SearchAndResearchPage}/>
 					<Route path={`${process.env.PUBLIC_URL}/history`} component={HistoryPage}/>
-					<Route path='/auth' component={Auth} />
+					<Route path={`${process.env.PUBLIC_URL}/auth`} component={Auth} />
           			<Route path='/main' component={Main} />
 
 					<Route component={NoMatch} />

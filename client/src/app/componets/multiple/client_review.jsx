@@ -37,8 +37,8 @@ class ClientReview extends React.Component {
                   <img src="/img/review/yifan.png" alt="" />
                 </div>
                 <div className="details relative">
-                  <h4>Yi Fan</h4>
-                  <p>Master Student of Computer Science and Technology</p>
+                  <h4>Fan Yi</h4>
+                  <p>Master Student of Computer and Information Technology</p>
                 </div>
               </div>
             </div>
@@ -46,7 +46,7 @@ class ClientReview extends React.Component {
               <div className="quote-wrap">
                 <p>
                   “I am a big fan of Steam. Sometimes I still find it is hard to explore some 
-                  interesting new games. Hope our  product can solve the problems for those people same as me!”
+                  interesting new games. Hope our product can solve the problems for those people same as me!”
                 </p>
                 <div className="star">
                   <span className="fa fa-star checked" />
@@ -88,7 +88,7 @@ class ClientReview extends React.Component {
                 </div>
                 <div className="details relative">
                   <h4>Jinghan Gu</h4>
-                  <p>Master Student of Scientific Computing</p>
+                  <p>Master Student of Data Science</p>
                 </div>
 
                 
@@ -144,8 +144,8 @@ class ClientReview extends React.Component {
                   <img src="/img/review/yifan.png" alt="" />
                 </div>
                 <div className="details relative">
-                  <h4>Yi Fan</h4>
-                  <p>Master Student of Computer Science and Technology</p>
+                  <h4>Fan Yi</h4>
+                  <p>Master Student of Computer and Information Technology</p>
                 </div>
               </div>
             </div>

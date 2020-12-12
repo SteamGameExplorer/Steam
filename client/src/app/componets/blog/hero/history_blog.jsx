@@ -71,7 +71,6 @@ class HistoryBlog extends React.Component {
                             10
                           </a>
                           <a href="/index" className="blog-link">
-                            <i className="fas fa-eye" />
                             <FontAwesomeIcon icon={ faEye } className="mr-1" />
                             4 Views
                           </a>

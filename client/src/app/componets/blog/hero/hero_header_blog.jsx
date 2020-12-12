@@ -70,14 +70,11 @@ class HeroHeaderBlog extends React.Component {
                          Fan Yi on 25th Nov, 2020
                       </div>
                       <div className="blog-summary">
-                        {/* eslint-disable-next-line */}
                         <a href="/index" className="blog-link">
                           <FontAwesomeIcon icon={ faHeart } className="mr-1" />
                             10
                         </a>
-                        {/* eslint-disable-next-line */}
                         <a href="/index" className="blog-link">
-                          <i className="fas fa-eye" />
                           <FontAwesomeIcon icon={ faEye } className="mr-1" />
                           4 Views
                         </a>
