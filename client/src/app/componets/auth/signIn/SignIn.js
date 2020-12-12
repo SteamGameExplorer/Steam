@@ -8,22 +8,29 @@ function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const signIn = () => {
+  
+    const signIn = async e  => {
+        e.preventDefault();
         auth.signInWithEmailAndPassword(email, password).then(res => {
-            history.push('/main');
+            console.log(email);
+            localStorage.setItem("email", email);
+            localStorage.setPassword("password", password);
+            console.log("test");
+            console.log(localStorage.getItem("email"));
+            history.goBack();
             //do something else with the response
         }).catch(err => {
             //do something with the error
         })
     }
- 
+
 
     return (
         <div className='signIn'>
             <h1>Sign in to your account</h1>
             <input type='text' placeholder='Enter your email' value={email} onChange={e => setEmail(e.currentTarget.value)} />
             <input type='password' placeholder='Enter your password' value={password} onChange={e => setPassword(e.currentTarget.value)} />
-            <button onClick={signIn}>Sign In</button>
+            <button type="submit" onClick={signIn}>Sign In</button>
         </div>
     )
 }

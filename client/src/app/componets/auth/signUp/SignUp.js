@@ -9,8 +9,10 @@ function SignUp() {
     const [password, setPassword] = useState('');
 
     const signUp = () => {
+        //const loggedInUser = localStorage.getItem("user");
+        //if (loggedInUser) console.log(user.email);
         auth.createUserWithEmailAndPassword(email, password).then(res => {
-            history.push('/main');
+            history.goBack();
             //do something with the response
         }).catch(err => {
             //do something with the error
