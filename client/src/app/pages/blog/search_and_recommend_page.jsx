@@ -14,7 +14,7 @@ const menuitems = [
   { text: 'Search by user favor'}
 ]
 
-class SearchAndResearchPage extends React.Component {
+class SearchAndRecommendPage extends React.Component {
 
   constructor(props) {
     super(props)
@@ -246,4 +246,4 @@ class SearchAndResearchPage extends React.Component {
   }
 }
 
-export default SearchAndResearchPage;
+export default SearchAndRecommendPage;

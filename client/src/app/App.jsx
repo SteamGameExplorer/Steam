@@ -12,7 +12,7 @@ import NoMatch from "./pages/NoMatch";
 import ScrollToTop from "./componets/scrollToTop";
 import Loader from "./componets/loader";
 import HistoryPage from "./pages/blog/history_page";
-import SearchAndResearchPage from "./pages/blog/search_and_recommend_page";
+import SearchAndRecommendPage from "./pages/blog/search_and_recommend_page";
 import Auth from './componets/auth/Auth.js';
 import Main from './componets/main/Main.js';
 
@@ -36,8 +36,11 @@ class App extends React.Component {
 
 					<Route path={`${process.env.PUBLIC_URL}/portfolio`} component={PortfolioPage}/>
 					<Route path={`${process.env.PUBLIC_URL}/popular`} component={BlogListPage}/>
-					<Route path={`${process.env.PUBLIC_URL}/search`} component={SearchAndResearchPage}/>
+					<Route path={`${process.env.PUBLIC_URL}/search`} component={SearchAndRecommendPage}/>
 					<Route path={`${process.env.PUBLIC_URL}/history`} component={HistoryPage}/>
+
+					<Route path={`${process.env.PUBLIC_URL}/user_list`} component={HistoryPage}/>
+
 					<Route path={`${process.env.PUBLIC_URL}/auth`} component={Auth} />
           			<Route path='/main' component={Main} />
 

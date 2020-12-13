@@ -8,7 +8,8 @@ class HeaderBlogDetailsSideBar extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      isNotScrolled: true
+      isNotScrolled: true,
+      user: ''
     };
   }
 
@@ -20,6 +21,13 @@ class HeaderBlogDetailsSideBar extends React.Component {
         this.setState({ isNotScrolled })
       }
     });
+
+    const user = localStorage.getItem("email");
+    if(user) {
+      this.setState({
+        user: user
+      });
+    }
 
   }
 
@@ -43,6 +51,10 @@ class HeaderBlogDetailsSideBar extends React.Component {
                 <Nav></Nav>
               </nav>
             </div>
+            {this.state.user? <div>      </div> : 
+            <div className="nav-wrap d-flex flex-row align-items-center genric-btn">
+                <Link to={"/auth"}>SignIn</Link>
+            </div>}
             
           </div>
         </div>

@@ -43,6 +43,11 @@ class HeaderBlogHome extends React.Component {
                 <Nav />
               </nav>
             </div>
+            <div className="nav-wrap d-flex flex-row align-items-center">
+              <a className="genric-btn" href="request-demo.html">
+                <Link to={"/auth"}>SignIn</Link>
+              </a>
+            </div>
             
           </div>
         </div>

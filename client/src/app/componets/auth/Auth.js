@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import SignIn from './signIn/SignIn';
-import SignUp from './signUp/SignUp';
 import { auth } from '../../helper/Firebase';
 import './Auth.scss';
 import { useHistory } from 'react-router-dom';
@@ -16,19 +14,16 @@ function Auth() {
         auth.onAuthStateChanged(user => {
             if (user) history.goBack();
         })
+        // eslint-disable-next-line
     }, [])
 
-    const signInOrUp = async e  => {
+    const signInOrUp = async(e)  => {
         e.preventDefault();
         auth.signInWithEmailAndPassword(email, password).then(res => {
             console.log(email);
-
             window.localStorage.setItem("email", email);
             window.localStorage.setPassword("password", password);
-            //console.log("test");
-            //console.log(window.localStorage.getItem("email"));
             history.goBack().goBack();
-            //do something else with the response
         }).catch(err => {
             //do something with the error
         })

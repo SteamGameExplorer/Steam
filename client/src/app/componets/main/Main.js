@@ -7,17 +7,12 @@ function Main() {
     useEffect(() => {
         auth.onAuthStateChanged(user => {
             if (!user) history.goBack();
-            // history.push('/home');
         })
     })
     const history = useHistory();
     const logOut = () => {
         auth.signOut().then(res => {
             localStorage.clear();
-            //console.log("test");
-            //console.log(localStorage.getItem("email"));
-            history.push('/auth');
-            //do something else with res
         }).catch(err => {
             //do something else with err
         })

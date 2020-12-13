@@ -4,11 +4,11 @@ import {Link} from "react-router-dom";
 
 class HeaderHome extends React.Component {
 
-
   constructor(props) {
     super(props);
     this.state={
-      isNotScrolled: true
+      isNotScrolled: true,
+      user: ''
     };
   }
 
@@ -21,8 +21,14 @@ class HeaderHome extends React.Component {
       }
     });
 
-  }
+    const user = localStorage.getItem("email");
+    if(user) {
+      this.setState({
+        user: user
+      });
+    }
 
+  }
 
   render() {
     return (
@@ -39,16 +45,12 @@ class HeaderHome extends React.Component {
               </Link>
             </div>
             <div className="nav-wrap d-flex flex-row align-items-center">
-
                 <Nav></Nav>
-
             </div>
-            <div className="nav-wrap d-flex flex-row align-items-center">
-              <a className="genric-btn" href="request-demo.html">
-                <Link to={"/auth"}>SignIn/Register</Link>
-              </a>
-            </div>
-            
+            {this.state.user? <div>      </div> : 
+            <div className="nav-wrap d-flex flex-row align-items-center genric-btn">
+                <Link to={"/auth"}>SignIn</Link>
+            </div>}
           </div>
         </div>
       </header>
