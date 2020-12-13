@@ -80,7 +80,7 @@ class Nav extends React.Component {
     <nav id={ this.state.openMobileMenu? "mobile-nav" : "nav-menu-container" }>
       <ul className={ this.state.openMobileMenu? "" : "parent-active nav-menu nav-menu2" } style={{touchAction: 'pan-y'}}> 
         <li>
-          <Link to={"/home"}>Home</Link>
+          <Link to={"/"}>Home</Link>
         </li>
         <li>
           <Link to={"/portfolio"}>Portfolio</Link>
