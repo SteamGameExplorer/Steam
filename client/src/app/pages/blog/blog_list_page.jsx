@@ -59,12 +59,15 @@ class BlogListPage extends React.Component {
 
                <div className="row">
                     <div className="col-lg-4">
+                    <a href={post.movies.slice(post.movies.search("'max': '") + 8,
+                     post.movies.search("'}, 'highlight':"))} 
+                    target='_blank' rel="noopener noreferrer">
                       <img
                         className="card-top-img"
                         src={post.header}
                         alt={post.release_year}
                       />
-                 
+                    </a>
                     </div>
                     <div className="col-lg-8">
                       <div className="card-body">

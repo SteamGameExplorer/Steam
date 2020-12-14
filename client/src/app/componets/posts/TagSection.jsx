@@ -10,7 +10,8 @@ export default class TagSection extends React.Component{
         this.state = {
             tagObjs : [],
             posts : [],
-            buttons : {}
+            buttons : {},
+            favoriteList: []
         }
         this.showPosts = this.showPosts.bind(this);
     }
@@ -29,7 +30,7 @@ export default class TagSection extends React.Component{
             .then(postsList => {
                 if(!postsList) return;
                 const posts = postsList.map(postObj => (
-                    <PortfolioGamePost postObj={postObj}/>
+                    <PortfolioGamePost postObj={postObj} like={this.state.favoriteList.includes(postObj.game_id)}/>
                 ));
 
                 this.setState({
@@ -50,6 +51,25 @@ export default class TagSection extends React.Component{
     }
 
     componentDidMount() {
+
+        const user = localStorage.getItem('email');
+        if(user) {
+            fetch("http://localhost:8081/favorite/" + user, {
+                method: 'GET' // The type of HTTP request.
+            }).then(res => res.json())
+            .then(postsList => {
+            if(!postsList) return;
+            const posts = postsList.map(postObj => (
+                postObj.game_id
+            ));
+
+            this.setState({
+                favoriteList: posts
+            });
+
+        });
+        }
+
         const tagObjs = this.props.tagObj.data;
         const year = this.props.tagObj.year;
         const order = ['primary', 'secondary', 'tertiery'];

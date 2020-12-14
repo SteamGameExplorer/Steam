@@ -8,7 +8,8 @@ class HeaderBlogHome extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      isNotScrolled: true
+      isNotScrolled: true,
+      user: ''
     };
   }
 
@@ -20,6 +21,13 @@ class HeaderBlogHome extends React.Component {
         this.setState({ isNotScrolled })
       }
     });
+
+    const user = localStorage.getItem("email");
+    if(user) {
+      this.setState({
+        user: user
+      });
+    }
 
   }
 
@@ -43,11 +51,10 @@ class HeaderBlogHome extends React.Component {
                 <Nav />
               </nav>
             </div>
-            <div className="nav-wrap d-flex flex-row align-items-center">
-              <a className="genric-btn" href="request-demo.html">
+            {this.state.user? <div>      </div> : 
+            <div className="nav-wrap d-flex flex-row align-items-center genric-btn">
                 <Link to={"/auth"}>SignIn</Link>
-              </a>
-            </div>
+            </div>}
             
           </div>
         </div>

@@ -23,6 +23,7 @@
     "desandro-matches-selector": "^2.0.2",
     "dotenv": "^8.2.0",
     "dotenv-expand": "^5.1.0",
+    "firebase": "^8.2.0",
     "get-size": "^2.0.3",
     "google-map-react": "^1.1.6",
     "isotope-layout": "^3.0.6",

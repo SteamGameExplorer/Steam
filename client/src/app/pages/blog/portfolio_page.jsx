@@ -16,7 +16,8 @@ class PortfolioPage extends React.Component {
       currentPageNew : 1,
       postsTop : [],
       currentPageTop : 1,
-      numPerPage : 3
+      numPerPage : 3,
+      favoriteList: []
     }
     this.handleClickFree = this.handleClickFree.bind(this);
     this.handleClickNew = this.handleClickNew.bind(this);
@@ -46,13 +47,32 @@ class PortfolioPage extends React.Component {
     document.body.classList.add('parent-active');
     document.body.classList.add('version-blog');
 
+    const user = localStorage.getItem('email');
+    if(user) {
+      fetch("http://localhost:8081/favorite/" + user, {
+        method: 'GET' // The type of HTTP request.
+      }).then(res => res.json())
+        .then(postsList => {
+        if(!postsList) return;
+        const posts = postsList.map(postObj => (
+          postObj.game_id
+        ));
+        console.log(posts);
+
+        this.setState({
+          favoriteList: posts
+        });
+
+      });
+    }
+
     fetch("http://localhost:8081/free", {
       method: 'GET' // The type of HTTP request.
     }).then(res => res.json())
       .then(postsList => {
         if(!postsList) return;
         const postsFree = postsList.map(postObj => (
-          <PortfolioGamePost postObj={postObj}/>
+          <PortfolioGamePost postObj={postObj} like={this.state.favoriteList.includes(postObj.game_id)}/>
         ));
 
         this.setState({
@@ -67,7 +87,7 @@ class PortfolioPage extends React.Component {
         .then(postsList => {
           if(!postsList) return;
           const postsNew = postsList.map(postObj => (
-            <PortfolioGamePost postObj={postObj}/>
+            <PortfolioGamePost postObj={postObj} like={this.state.favoriteList.includes(postObj.game_id)}/>
           ));
   
           this.setState({
@@ -82,7 +102,7 @@ class PortfolioPage extends React.Component {
           .then(postsList => {
             if(!postsList) return;
             const postsTop = postsList.map(postObj => (
-              <PortfolioGamePost postObj={postObj}/>
+              <PortfolioGamePost postObj={postObj} like={this.state.favoriteList.includes(postObj.game_id)}/>
             ));
     
             this.setState({

@@ -30,7 +30,8 @@ class SearchAndRecommendPage extends React.Component {
       tag : "",
       price : -1,
       system : "system",
-      name : ""
+      name : "",
+      favoriteList: []
     }
 
     this.handleChangeSystem = this.handleChangeSystem.bind(this);
@@ -44,15 +45,34 @@ class SearchAndRecommendPage extends React.Component {
   componentDidMount() {
     document.body.classList.add('parent-active');
     document.body.classList.add('version-blog');
+    const user = localStorage.getItem('email');
+    if(user) {
+      fetch("http://localhost:8081/favorite/" + user, {
+        method: 'GET' // The type of HTTP request.
+      }).then(res => res.json())
+        .then(postsList => {
+        if(!postsList) return;
+        const posts = postsList.map(postObj => (
+          postObj.game_id
+        ));
+        console.log(posts);
+
+        this.setState({
+          favoriteList: posts
+        });
+
+      }); 
+    }
 
     //cold start for recommendation
-    fetch("http://localhost:8081/cold_start", {
+    if(!user || !this.state.favoriteList) {
+      fetch("http://localhost:8081/cold_start", {
       method: 'GET' // The type of HTTP request.
     }).then(res => res.json())
       .then(postsList => {
       if(!postsList) return;
       const posts = postsList.map(postObj => (
-        <PortfolioGamePost postObj={postObj}/>
+        <PortfolioGamePost postObj={postObj} like={false}/>
       ));
 
       this.setState({
@@ -61,6 +81,23 @@ class SearchAndRecommendPage extends React.Component {
       });
 
     });
+    } else {
+      fetch("http://localhost:8081/recommendation/" + user, {
+      method: 'GET' // The type of HTTP request.
+    }).then(res => res.json())
+      .then(postsList => {
+      if(!postsList) return;
+      const posts = postsList.map(postObj => (
+        <PortfolioGamePost postObj={postObj} like={this.state.favoriteList.includes(postObj.game_id)}/>
+      ));
+
+      this.setState({
+        postsInit: posts,
+        postsToShow : posts
+      });
+
+    });
+    }
 
     // get all prices
     fetch("http://localhost:8081/prices", {
@@ -145,7 +182,7 @@ class SearchAndRecommendPage extends React.Component {
       .then(postsList => {
       if(!postsList) return;
       const posts = postsList.map(postObj => (
-        <PortfolioGamePost postObj={postObj}/>
+        <PortfolioGamePost postObj={postObj} like={this.state.favoriteList.includes(postObj.game_id)}/>
       ));
 
       this.setState({
@@ -163,7 +200,7 @@ class SearchAndRecommendPage extends React.Component {
       .then(postsList => {
       if(!postsList) return;
       const posts = postsList.map(postObj => (
-        <PortfolioGamePost postObj={postObj}/>
+        <PortfolioGamePost postObj={postObj} like={this.state.favoriteList.includes(postObj.game_id)}/>
       ));
 
       this.setState({

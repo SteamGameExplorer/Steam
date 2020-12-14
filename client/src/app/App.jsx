@@ -7,6 +7,7 @@ import ContactPage from "./pages/multiple/contact_page";
 
 import PortfolioPage from "./pages/blog/portfolio_page";
 import BlogListPage from "./pages/blog/blog_list_page";
+import MyList from "./pages/blog/my_list";
 
 import NoMatch from "./pages/NoMatch";
 import ScrollToTop from "./componets/scrollToTop";
@@ -39,7 +40,7 @@ class App extends React.Component {
 					<Route path={`${process.env.PUBLIC_URL}/search`} component={SearchAndRecommendPage}/>
 					<Route path={`${process.env.PUBLIC_URL}/history`} component={HistoryPage}/>
 
-					<Route path={`${process.env.PUBLIC_URL}/user_list`} component={HistoryPage}/>
+					<Route path={`${process.env.PUBLIC_URL}/user_list`} component={MyList}/>
 
 					<Route path={`${process.env.PUBLIC_URL}/auth`} component={Auth} />
           			<Route path='/main' component={Main} />
