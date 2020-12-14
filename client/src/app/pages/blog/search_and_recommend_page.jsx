@@ -57,15 +57,31 @@ class SearchAndRecommendPage extends React.Component {
         ));
         console.log(posts);
 
+        fetch("http://localhost:8081/" + (posts.length === 0 ? "cold_start" : ("recommendation/" + user)), {
+          method: 'GET' // The type of HTTP request.
+        }).then(res => res.json())
+          .then(postsList => {
+          if(!postsList) return;
+          const posters = postsList.map(postObj => (
+            <PortfolioGamePost postObj={postObj} like={posts.includes(postObj.game_id)}/>
+          ));
+
+          this.setState({
+            postsInit: posters,
+            postsToShow : posters
+          });
+
+        });
+
         this.setState({
           favoriteList: posts
         });
 
       }); 
     }
-
+    
     //cold start for recommendation
-    if(!user || !this.state.favoriteList) {
+    else {
       fetch("http://localhost:8081/cold_start", {
       method: 'GET' // The type of HTTP request.
     }).then(res => res.json())
@@ -73,22 +89,6 @@ class SearchAndRecommendPage extends React.Component {
       if(!postsList) return;
       const posts = postsList.map(postObj => (
         <PortfolioGamePost postObj={postObj} like={false}/>
-      ));
-
-      this.setState({
-        postsInit: posts,
-        postsToShow : posts
-      });
-
-    });
-    } else {
-      fetch("http://localhost:8081/recommendation/" + user, {
-      method: 'GET' // The type of HTTP request.
-    }).then(res => res.json())
-      .then(postsList => {
-      if(!postsList) return;
-      const posts = postsList.map(postObj => (
-        <PortfolioGamePost postObj={postObj} like={this.state.favoriteList.includes(postObj.game_id)}/>
       ));
 
       this.setState({

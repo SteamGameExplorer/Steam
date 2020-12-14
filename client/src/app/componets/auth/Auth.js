@@ -32,9 +32,7 @@ function Auth() {
         auth.createUserWithEmailAndPassword(email, password).then(res => {
             console.log(email);
             window.localStorage.setItem("email", email);
-            window.localStorage.setPassword("password", password);
- 
-        
+            window.localStorage.setPassword("password", password);      
             history.goBack().goBack();
             //do something with the response
         }).catch(err => {
@@ -48,7 +46,7 @@ function Auth() {
         fetch("http://localhost:8081/signup", {
             method: 'POST',
             headers: {
-            'Content-Type': 'application/json' 
+                'Content-Type': 'application/json' 
             },
             body: JSON.stringify(paras)
         }).then(res => res.json())
