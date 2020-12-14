@@ -90,6 +90,9 @@ app.get('/favorite/:user', routes.getFavorite);
 // change the user's list based on user's clicks
 app.post('/favorite', routes.changeList);
 
+// add user when signing up
+app.post('/signup', routes.addUser);
+
 app.listen(8081, () => {
 	console.log(`Server listening on PORT 8081`);
 });

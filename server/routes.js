@@ -311,10 +311,7 @@ function changeList(req, res) {
   const userId = req.body.userId;
   const gameId = req.body.gameId;
   const add = req.body.add;
-  //console.log(req.body);
 
-  //operations to match the query will implement later
-  // Jinghan just use userId, addList and deleteList
   let query;
   if(add) {
     query = `INSERT INTO Favorite (user_id, game_id)
@@ -333,6 +330,26 @@ function changeList(req, res) {
   });
 };
 
+function addUser(req, res) {
+    const email = req.body.email;
+    const password = req.body.password;
+    const index = email.indexOf('@');
+    const name = email.slice(0, index);
+
+    const query = `
+      insert into User (id, password, name, email)
+      values ('${email}', '${password}', '${name}', '${email}');
+    `;
+
+    connection.query(query, function(err, rows, fields) {
+      if (err) console.log(err);
+      else {
+        res.json(rows);
+      }
+    });
+
+}
+
 // The exported functions, which can be accessed in index.js.
 module.exports = {
 	getFree: getFree,
@@ -350,5 +367,6 @@ module.exports = {
   getPopularTags : getPopularTags,
   getTagHistory : getTagHistory,
   getFavorite: getFavorite,
-  changeList : changeList
+  changeList : changeList,
+  addUser : addUser
 }

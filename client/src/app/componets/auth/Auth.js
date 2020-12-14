@@ -23,6 +23,22 @@ function Auth() {
             console.log(email);
             window.localStorage.setItem("email", email);
             window.localStorage.setPassword("password", password);
+            const paras = {
+                email: email,
+                password: password
+            };
+            if(authType === 'signUp') {
+                fetch("http://localhost:8081/signup", {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json' 
+                    },
+                    body: JSON.stringify(paras)
+                }).then(res => res.json())
+                    .then(data => {
+                    console.log('Success:', data);
+                });
+            }
             history.goBack().goBack();
         }).catch(err => {
             //do something with the error
