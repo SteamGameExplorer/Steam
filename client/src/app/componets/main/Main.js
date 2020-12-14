@@ -20,7 +20,7 @@ function Main() {
 
     return (
         <div className='main'>
-            <h1>Hey there, you're logged in!</h1>
+            <h1>Please click the button below to log out</h1>
             <button onClick={logOut}>Log out</button>
         </div>
     )
