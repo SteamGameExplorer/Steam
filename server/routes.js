@@ -308,16 +308,23 @@ function getFavorite(req, res) {
 
 // change the user's favorite list
 function changeList(req, res) {
-  const userId = req.params.userId;
-  const addList = req.params.addList;
-  const deleteList = req.params.deleteList;
+  const userId = req.body.userId;
+  const gameId = req.body.gameId;
+  const add = req.body.add;
+  //console.log(req.body);
 
   //operations to match the query will implement later
   // Jinghan just use userId, addList and deleteList
-
-
-  const query = `
+  let query;
+  if(add) {
+    query = `INSERT INTO Favorite (user_id, game_id)
+    VALUES ('${userId}', ${gameId});
   `;
+  } else {
+    query = `delete from Favorite where user_id='${userId}' and game_id=${gameId};
+  `;
+  }
+
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {

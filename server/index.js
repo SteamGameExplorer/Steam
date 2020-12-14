@@ -88,7 +88,7 @@ app.get('/history/:year/:tag', routes.getTagHistory);
 app.get('/favorite/:user', routes.getFavorite);
 
 // change the user's list based on user's clicks
-app.get('/favorite/:user/:addList/:deleteList', routes.changeList);
+app.post('/favorite', routes.changeList);
 
 app.listen(8081, () => {
 	console.log(`Server listening on PORT 8081`);

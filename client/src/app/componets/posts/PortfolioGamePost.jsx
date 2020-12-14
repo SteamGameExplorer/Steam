@@ -30,6 +30,23 @@ export default class PortfolioGamePost extends React.Component {
     this.setState({
       like: like
     });
+    const paras = {
+      userId: this.state.user,
+      gameId: this.props.postObj.game_id,
+      add: like
+    };
+    if(this.state.user) {
+      fetch("http://localhost:8081/favorite", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify(paras)
+      }).then(res => res.json())
+        .then(data => {
+          console.log('Success:', data);
+      });
+    }
   }
 
 	render() {
