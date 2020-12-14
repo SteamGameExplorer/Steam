@@ -36,7 +36,7 @@ users sign in.
 app.get('/cold_start', routes.getTopRatingOnTags);
 
 /* Recommendations based on user's favoriate list */
-app.get('/recommendation/:list', routes.getRecommendation); 
+app.get('/recommendation/:id', routes.getRecommendation); 
 
 //get price intervals
 app.get('/prices', routes.getPrices);

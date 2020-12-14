@@ -83,9 +83,38 @@ function getTopRatingOnTags(req, res) {
 
 //Recommendation based on user
 function getRecommendation(req, res) {
-  const userId = req.params.userId;
+  const id = req.params.id;
   var query = `
-  
+  WITH tmp3 AS 
+	(SELECT T.* 
+	FROM Game_Tag T 
+	JOIN (SELECT tmp1.tag_name, 
+			COUNT(*) AS num 
+		FROM (SELECT T.game_id, 
+					 T.tag_name
+			FROM Favorite F
+			JOIN Game_Tag T 
+			ON T.game_id = F.game_id 
+			WHERE F.user_id = "${id}") tmp1 
+		GROUP BY tag_name 
+		LIMIT 3) tmp2 
+	ON tmp2.tag_name = T.tag_name),
+tmp4 AS (SELECT G.*, tmp3.tag_name
+			FROM Game G 
+            JOIN tmp3 
+            ON G.game_id = tmp3.game_id 
+            WHERE G.total_rating > 100),
+tmp5 AS (SELECT 
+        tmp4.*,
+        RANK() OVER (
+            PARTITION BY tag_name
+            ORDER BY rating DESC
+        ) rating_rank
+        FROM tmp4)
+SELECT tmp5.*
+FROM tmp5 
+WHERE rating_rank <= 3 
+ORDER BY tag_name, rating_rank;
   `;
 
   connection.query(query, function(err, rows, fields) {
@@ -186,8 +215,8 @@ function getSearchResults(req, res) {
 /* ---- branch 2 ---- */
 function getYearlyPopular(req, res) {
   var query = `
-  WITH tmp1 AS (SELECT game_id, company,  name, platforms, total_rating, header, short_description AS description, year(release_date) AS release_year, rating FROM Game),
-tmp2 AS (SELECT tmp1.release_year, tmp1.company, tmp1.platforms, tmp1.total_rating, tmp1.name, tmp1.header, tmp1.description, Max(rating) OVER (PARTITION BY tmp1.release_year) AS rating
+  WITH tmp1 AS (SELECT game_id, company,  name, platforms, total_rating, header, short_description AS description, year(release_date) AS release_year, rating, movies FROM Game),
+tmp2 AS (SELECT tmp1.release_year, tmp1.company, tmp1.platforms, tmp1.total_rating, tmp1.name, tmp1.header, tmp1.description, tmp1.movies, Max(rating) OVER (PARTITION BY tmp1.release_year) AS rating
 FROM tmp1 ORDER BY release_year, total_rating DESC, rating DESC),
 tmp3 AS (SELECT tmp2.release_year, Max(tmp2.total_rating) OVER (PARTITION BY tmp2.release_year) as total_rating FROM tmp2 GROUP BY tmp2.release_year)
 SELECT tmp2.* FROM tmp2 JOIN tmp3 ON tmp2.release_year = tmp3.release_year AND tmp2.total_rating = tmp3.total_rating;
@@ -249,6 +278,7 @@ function getTagHistory(req, res) {
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
     else {
+      console.log(rows);
       res.json(rows);
     }
   });
@@ -262,8 +292,11 @@ function getTagHistory(req, res) {
 /* ---- User operations ---- */
 // get user's favorite list
 function getFavorite(req, res) {
-  const userId = req.params.userId;
+  const userId = req.params.user;
   const query = `
+    select g.game_id, name, company, platforms, price, release_date, total_rating, rating, header, movies, short_description 
+    from Favorite f join Game g on f.game_id=g.game_id
+    where user_id='${userId}';
   `;
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
