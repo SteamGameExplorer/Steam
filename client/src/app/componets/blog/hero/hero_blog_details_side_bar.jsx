@@ -62,7 +62,6 @@ class HeroBlogDetailsSideBar extends React.Component {
               </div>
               <div className="text-center">
                 <a href="#facebook" className="social-link">
-                  <i className="fab fa-facebook-f" />
                   <FontAwesomeIcon icon={ faFacebookF } className="mr-1" />
                 </a>
                 <a href="#twitter" className="social-link">

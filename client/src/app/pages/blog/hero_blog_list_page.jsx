@@ -59,7 +59,6 @@ class HeroBlogListPage extends React.Component {
                             10045
                           </a>
                           <a href="/index" className="blog-link">
-                            <i className="fas fa-eye" />
                             <FontAwesomeIcon icon={ faEye } className="mr-1" />
                             4.8k Views
                           </a>
