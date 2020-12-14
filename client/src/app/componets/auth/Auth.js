@@ -17,33 +17,47 @@ function Auth() {
         // eslint-disable-next-line
     }, [])
 
-    const signInOrUp = async(e)  => {
+    const signIn = async(e)  => {
         e.preventDefault();
         auth.signInWithEmailAndPassword(email, password).then(res => {
             console.log(email);
             window.localStorage.setItem("email", email);
             window.localStorage.setPassword("password", password);
-            const paras = {
-                email: email,
-                password: password
-            };
-            if(authType === 'signUp') {
-                fetch("http://localhost:8081/signup", {
-                    method: 'POST',
-                    headers: {
-                    'Content-Type': 'application/json' 
-                    },
-                    body: JSON.stringify(paras)
-                }).then(res => res.json())
-                    .then(data => {
-                    console.log('Success:', data);
-                });
-            }
             history.goBack().goBack();
         }).catch(err => {
             //do something with the error
         })
     }
+    const signUp = () => {
+        auth.createUserWithEmailAndPassword(email, password).then(res => {
+            console.log(email);
+            window.localStorage.setItem("email", email);
+            window.localStorage.setPassword("password", password);
+ 
+        
+            history.goBack().goBack();
+            //do something with the response
+        }).catch(err => {
+            //do something with the error
+        })
+        const paras = {
+            email: email,
+            password: password
+        };
+
+        fetch("http://localhost:8081/signup", {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify(paras)
+        }).then(res => res.json())
+            .then(data => {
+            console.log('Success:', data);
+        });
+
+    }
+
 
     return (
         <div className='auth'>
@@ -53,7 +67,7 @@ function Auth() {
                         <h1>Sign in to your account</h1>
                         <input type='text' placeholder='Enter your email' value={email} onChange={e => setEmail(e.currentTarget.value)} />
                         <input type='password' placeholder='Enter your password' value={password} onChange={e => setPassword(e.currentTarget.value)} />
-                        <button type="submit" onClick={signInOrUp}>Sign In</button>
+                        <button type="submit" onClick={signIn}>Sign In</button>
                      </div>
                     <p>New here? <span onClick={() => setAuthType('signUp')}>Create account.</span></p>
                 </div>
@@ -63,7 +77,7 @@ function Auth() {
                         <h1>Register your account</h1>
                         <input type='text' placeholder='Enter your email' onChange={e => setEmail(e.currentTarget.value)} />
                         <input type='password' placeholder='Enter your password' onChange={e => setPassword(e.currentTarget.value)} />
-                        <button onClick={signInOrUp}>Sign Up</button>
+                        <button onClick={signUp}>Sign Up</button>
                     </div>
                     <p>Have an account? <span onClick={() => setAuthType('signIn')}>Sign In.</span></p>
                 </div>
