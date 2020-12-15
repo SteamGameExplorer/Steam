@@ -21,7 +21,7 @@ class About extends React.Component {
               Of course, we would also give them some inventory based on different conditions.
 
               </p>
-              <a href="/index" className="genric-btn2">
+              <a href="https://youtu.be/O5szQRAZCU8" target='_blank' rel="noopener noreferrer" className="genric-btn2">
                 Browse Our project demo video
               </a>
             </div>

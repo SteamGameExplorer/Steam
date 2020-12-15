@@ -88,7 +88,7 @@ export default class PortfolioGamePost extends React.Component {
                      {/* eslint-disable-next-line */}
                      <a  className="card-link">
                        <FontAwesomeIcon className="mr-1" icon={ faEye } />
-                       { post.total_rating } Ratings
+                       { post.total_rating } Comments
                      </a>
                    </div>
                    <div className="mb-9">

@@ -232,13 +232,13 @@ class SearchAndRecommendPage extends React.Component {
              <div className={(this.state.showMenuItem === index) ? 'submenu-show' : 'submenu-hidden'}>
               {index === 1 ? <div>
                 <div style={{float : "left", width : 320, paddingRight : 20}}>
-                <Select isClearable={true} onChange={this.handleChangeSystem} placeholder="Select system" options={systems} />
+                <Select isClearable={false} onChange={this.handleChangeSystem} placeholder="Select system" options={systems} />
                 </div>
                 <div style={{float : "left", width : 320, paddingRight : 20}}>
-                  <Select isClearable={true} onChange={this.handleChangePrice} placeholder="Select price interval" options={this.state.prices} />  
+                  <Select isClearable={false} onChange={this.handleChangePrice} placeholder="Select price interval" options={this.state.prices} />  
                 </div>
                 <div style={{float : "left", width : 320}}>
-                  <Select isClearable={true} onChange={this.handleChangeTag} placeholder="Select tag name" options={this.state.tags} />                  
+                  <Select isClearable={false} onChange={this.handleChangeTag} placeholder="Select tag name" options={this.state.tags} />                  
                 </div>               
                 <button className="search-btn" onClick={this.searchOnFavor}>
                   <FontAwesomeIcon className="mr-1" icon={faSearch} />
